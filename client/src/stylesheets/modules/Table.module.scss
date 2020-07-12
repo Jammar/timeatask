@@ -1,0 +1,38 @@
+@import '../vars';
+
+// Local variables
+$borders: 1px solid #707070;
+
+table {
+  // display: block;
+  padding: 0 20px;
+  border-radius: 4px;
+  border-spacing: 20px;
+
+  th {
+    padding: 10px 18px;
+    background: $secondaryBG;
+    border: 1px solid #707070;
+    border-radius: 25px;
+  }
+
+  tbody {
+    td {
+      padding: 10px 15px;
+      background: $secondaryBG;
+      border-radius: 25px;
+      text-align: center;
+    }
+  }
+
+  tfoot {
+    td {
+      padding: 10px 15px;
+      background: #c4c4c4;
+      border: 1px solid black;
+      border-radius: 25px;
+      text-align: center;
+      font-weight: 800;
+    }
+  }
+}
