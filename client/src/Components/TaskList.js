@@ -63,10 +63,7 @@ const TaskList = (props) => {
       <div className="second header">TASK</div>
       <div className="third header">TAGS</div>
 
-      
-
       {dbData.map((data) => (
-
       <Task key={data._id} data={data} delData={delData} />
       ))}
       <div className="first footer" id="firstcol">{totTime}</div>

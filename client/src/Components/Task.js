@@ -11,21 +11,22 @@ const Task = (props) => {
     setIsExtended(!isExtended)
   }
 
+  const allTags = data.tags.map(tag => tag + " ")
+
   return (
     <React.Fragment>
       <div className="first">
         {data.time}
       </div>
-      <div 
+      <div
         className="second" 
         onClick={(e)=>{extendView()}}>
         {data.task}
-        
         {isExtended &&
         <span className="showId">id: {data._id}</span>}
         
       </div>
-      <div className="third">{data.tags}</div>
+      <div className="third">{allTags}</div>
       <button 
         className="fourth"
         type="button"
