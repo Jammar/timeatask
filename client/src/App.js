@@ -4,7 +4,7 @@ import './stylesheets/main.scss'
 
 import Header from './Components/Header'
 import InputBar from './Components/InputBar'
-import Table from './Components/Table'
+import TaskList from './Components/TaskList'
 
 const App = () => {
   const [isUpdated, setIsUpdated] = useState(false)
@@ -19,7 +19,7 @@ const App = () => {
     <div className="app">
       <Header />
       <InputBar updateHandler={updateHandler} />
-      <Table isUpdated={isUpdated} updateHandler={updateHandler} />
+      <TaskList isUpdated={isUpdated} updateHandler={updateHandler} />
     </div>
   )
 }

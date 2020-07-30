@@ -18,6 +18,10 @@ h1 {
   text-align: center;
 }
 
+.showId {
+  font-size: 0.5rem;
+}
+
 // Local variables
 $borders: 1px solid #707070;
 
@@ -32,6 +36,10 @@ $borders: 1px solid #707070;
     background: $secondaryBG;
     border-radius: 25px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .header {
@@ -93,9 +101,6 @@ form {
       border-color: #000;
     }
   }
-
-
-
 }
 
 .first {

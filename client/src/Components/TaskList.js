@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import Task from './Task'
+
 /* import '../stylesheets/modules/TableTwo.module.scss' */
 
-const Table = (props) => {
+const TaskList = (props) => {
   const [dbData, setDbData] = useState([])
   const [totTime, setTotTime] = useState(0)
 
@@ -61,21 +63,11 @@ const Table = (props) => {
       <div className="second header">TASK</div>
       <div className="third header">TAGS</div>
 
+      
+
       {dbData.map((data) => (
-        <React.Fragment key={"Frag"+data._id}>
-          <div className="first" key={data._id+data.time}>
-            {data.time}
-          </div>
-          <div className="second" key={data._id+data.task}>{data.task}</div>
-          <div className="third" key={data._id+data.tags}>{data.tags}</div>
-          <button 
-            className="fourth"
-            key={data._id}
-            type="button"
-            onClick={(e)=>{delData(data._id)}}>
-            X
-          </button>
-        </React.Fragment>
+
+      <Task key={data._id} data={data} delData={delData} />
       ))}
       <div className="first footer" id="firstcol">{totTime}</div>
       <div className="second footer" id="secondcol">tillämpad programmering</div>
@@ -85,4 +77,4 @@ const Table = (props) => {
   )
 }
 
-export default Table
+export default TaskList
