@@ -9,7 +9,7 @@ import Table from './Components/Table'
 const App = () => {
   const [isUpdated, setIsUpdated] = useState(false)
 
-  // Handles state for whether the table is updated or not, 
+  // Handles state for whether the table is updated or not,
   // basically communicates between components
   const updateHandler = (bool) => {
     setIsUpdated(bool)

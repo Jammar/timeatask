@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import '../stylesheets/modules/Table.module.scss'
+/* import '../stylesheets/modules/TableTwo.module.scss' */
 
 const Table = (props) => {
   const [dbData, setDbData] = useState([])
@@ -38,39 +38,50 @@ const Table = (props) => {
       .get('http://localhost:5000/api/items')
       .then((res) => {
         console.log(res.data)
-        setDbData(res.data)
+        setDbData(res.data.reverse())
+      })
+      .catch((err) => console.log(err))
+  }
+
+  // DELETE request
+  const delData = (id) => {
+    console.log("this is id: " + id)
+
+    axios
+      .delete('http://localhost:5000/api/items/' + id)
+      .then((res) => {
+        updateHandler(false)
       })
       .catch((err) => console.log(err))
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>TIME</th>
-          <th>TASK</th>
-          <th>TAGS</th>
-        </tr>
-      </thead>
-      <tbody>
-        {/* Need to fix id's for td elements too */}
-        {dbData.map((data) => (
-          <tr key={data.id}>
-            <td>{data.time}</td>
-            <td>{data.task}</td>
-            <td>{data.tags}</td>
-          </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>{totTime}</td>
-          <td>tillämpad programmering</td>
-          <td>ALL TAGS</td>
-          <td>65% out of 10,000</td>
-        </tr>
-      </tfoot>
-    </table>
+    <div className="wrapper">
+      <div className="first header">TIME</div>
+      <div className="second header">TASK</div>
+      <div className="third header">TAGS</div>
+
+      {dbData.map((data) => (
+        <React.Fragment key={"Frag"+data._id}>
+          <div className="first" key={data._id+data.time}>
+            {data.time}
+          </div>
+          <div className="second" key={data._id+data.task}>{data.task}</div>
+          <div className="third" key={data._id+data.tags}>{data.tags}</div>
+          <button 
+            className="fourth"
+            key={data._id}
+            type="button"
+            onClick={(e)=>{delData(data._id)}}>
+            X
+          </button>
+        </React.Fragment>
+      ))}
+      <div className="first footer" id="firstcol">{totTime}</div>
+      <div className="second footer" id="secondcol">tillämpad programmering</div>
+      <div className="third footer" id="thirdcol">ALL TAGS</div>
+      <div className="fourth footer" id="fourthcol">65% out of 10,000</div>
+    </div>
   )
 }
 
