@@ -10,7 +10,7 @@ const InputBar = (props) => {
   const [secondWidth, setSecondWidth] = useState(0)
   const [thirdWidth, setThirdWidth] = useState(0)
 
-  const {addData} = props;
+  const { addData } = props
 
   // Temporary fix for setting width of the InputBar's the same as the tables divs.
   useEffect(() => {
@@ -42,7 +42,7 @@ const InputBar = (props) => {
   // POST request when form is submitted
   const onSubmit = (e) => {
     e.preventDefault()
-    
+
     const requestBody = {
       query: `
         mutation {

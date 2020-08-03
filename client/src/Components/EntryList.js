@@ -3,8 +3,7 @@ import React from 'react'
 import Entry from './Entry'
 
 const EntryList = (props) => {
-  
-  const { dbData, totTime, delData } = props;
+  const { dbData, totTime, delData } = props
 
   return (
     <div className="wrapper">
