@@ -22,7 +22,7 @@ const Schema = mongoose.Schema
 */
 
 // Create Schema
-const ItemSchema = new Schema({
+const entrySchema = new Schema({
   time: {
     type: Number,
     required: true,
@@ -43,4 +43,9 @@ const ItemSchema = new Schema({
   },
 })
 
-module.exports = Item = mongoose.model('item', ItemSchema)
+// The schema alone doesn't help us, we need to create a model from the schema
+// Schema = our plan, the model = blueprint which incorporates that plan
+// which we use to create objects with which we work with our application
+
+// the first arg: name of the model. second arg: pointer to the schema
+module.exports = Entry = mongoose.model('Entry', entrySchema)

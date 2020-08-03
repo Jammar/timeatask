@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Task = (props) => {
+const Entry = (props) => {
 
   const [isExtended, setIsExtended] = useState(false)
 
@@ -23,7 +23,9 @@ const Task = (props) => {
         onClick={(e)=>{extendView()}}>
         {data.task}
         {isExtended &&
-        <span className="showId">id: {data._id}</span>}
+        <><span className="showId">id: {data._id}</span>
+        <span className="showId">date: {data.date}</span></>
+        }
         
       </div>
       <div className="third">{allTags}</div>
@@ -38,4 +40,4 @@ const Task = (props) => {
   )
 }
 
-export default Task
+export default Entry
