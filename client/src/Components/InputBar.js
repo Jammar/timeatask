@@ -63,10 +63,6 @@ const InputBar = (props) => {
         'Content-Type': 'application/json',
       })
       .then((res) => {
-        console.log(res.data.data.createEntry._id)
-        console.log(res.data.data.createEntry.date)
-        console.log(res.data.data.createEntry.task)
-        console.log(res.data.data.createEntry.tags)
         addData(res.data.data.createEntry)
       })
       .catch((err) => console.log(err))
